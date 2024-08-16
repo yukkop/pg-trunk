@@ -32,13 +32,34 @@
 	    openssl 
 	    postgresql
 	  ];
-          overlay = import ./.;
         in
         with pkgs;
         {
 	  overlays = {
-            default = overlay;
-            pg-trunk = overlay;
+            default =  final: prev: {
+              pg-trunk = rustPlatform.buildRustPackage rec {
+                inherit buildInputs nativeBuildInputs;
+                pname = "pg-trunk";
+                version = "0.12.26";
+
+                src = ./cli;
+
+                cargoHash = "sha256-w71MC1XHbFRPnjS6pOm21pHVwO5lxpfFH++gs/Yefvc=";
+
+                checkType = "debug";
+
+                doCheck = false;
+
+                cargoCheckFeatures = ["ignore-network-related-tests"];
+
+                meta = with lib; {
+                  description = "postgres package manager";
+                  homepage = "https://github.com/tembo-io/trunk";
+                  license = licenses.postgresql;
+                  maintainers = [];
+                };
+              };
+            };
           };
 
           packages = {
