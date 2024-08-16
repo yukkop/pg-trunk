@@ -32,9 +32,14 @@
 	    openssl 
 	    postgresql
 	  ];
+          overlay = import ./.;
         in
         with pkgs;
         {
+	  overlays = {
+            default = overlay;
+            pg-trunk = overlay;
+          };
 
           packages = {
             default = rustPlatform.buildRustPackage rec {
