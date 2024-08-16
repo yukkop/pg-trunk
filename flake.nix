@@ -74,6 +74,13 @@
             #  export PATH="''${PATH}:''${HOME}/.cargo/bin"
             #'';
           };
+
+	  nixosModules = {
+            default = { config, pkgs, ... }: {
+              nixpkgs.overlays = [ (import self) ];
+              environment.systemPackages = [ pkgs.pg-trunk ];
+            };
+          };
         }
       );
 
