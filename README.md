@@ -2,6 +2,12 @@
   <img src="https://github.com/tembo-io/trunk/assets/8935584/905ef1f3-10ff-48b5-90af-74af74ebb1b1" width=25% height=25%>
 </p>
 
+# Fork
+this is hot fix fork for make ability covet this repo via nix
+
+- created a flake.nix (not the best flake that you can see)
+- remove Cargo.lock from .gitignore (neccessary for nix packages with rust)
+
 # Trunk
 
 [![version](https://img.shields.io/crates/v/pg-trunk?label=CLI&logo=rust)](https://crates.io/crates/pg-trunk)
