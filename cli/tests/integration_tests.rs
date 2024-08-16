@@ -18,6 +18,7 @@ fn help() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
+#[cfg(not(feature = "ignore-network-related-tests"))]
 #[test]
 fn install_manifest_v1_extension() -> Result<(), Box<dyn std::error::Error>> {
     // Construct a path relative to the current file's directory
@@ -48,6 +49,7 @@ fn install_manifest_v1_extension() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
+#[cfg(not(feature = "ignore-network-related-tests"))]
 #[test]
 fn build_and_install_extension_with_directory_field() -> Result<(), Box<dyn std::error::Error>> {
     // Set up a temporary directory that will be deleted when the test finishes.
@@ -97,6 +99,7 @@ fn build_and_install_extension_with_directory_field() -> Result<(), Box<dyn std:
     Ok(())
 }
 
+#[cfg(not(feature = "ignore-network-related-tests"))]
 #[test]
 fn build_pgrx_extension() -> Result<(), Box<dyn std::error::Error>> {
     // Set up a temporary directory that will be deleted when the test finishes.
@@ -217,6 +220,7 @@ fn build_pgrx_extension_bad_version() -> Result<(), Box<dyn std::error::Error>> 
     Ok(())
 }
 
+#[cfg(not(feature = "ignore-network-related-tests"))]
 #[test]
 fn build_c_extension() -> Result<(), Box<dyn std::error::Error>> {
     // Set up a temporary directory that will be deleted when the test finishes.
@@ -280,6 +284,7 @@ fn build_c_extension() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
+#[cfg(not(feature = "ignore-network-related-tests"))]
 #[test]
 fn build_extension_custom_dockerfile() -> Result<(), Box<dyn std::error::Error>> {
     // Set up a temporary directory that will be deleted when the test finishes.
@@ -372,6 +377,7 @@ fn build_extension_custom_dockerfile() -> Result<(), Box<dyn std::error::Error>>
     Ok(())
 }
 
+#[cfg(not(feature = "ignore-network-related-tests"))]
 #[test]
 fn build_pg_stat_statements() -> Result<(), Box<dyn std::error::Error>> {
     // Set up a temporary directory that will be deleted when the test finishes.
@@ -385,6 +391,7 @@ fn build_pg_stat_statements() -> Result<(), Box<dyn std::error::Error>> {
     let repo_url = "https://github.com/postgres/postgres.git";
     let repo_dir = &output_dir.join("postgres_pg_stat_statements");
     let repo = Repository::clone(repo_url, repo_dir).unwrap();
+
     let refname = "REL_15_3";
     let (object, reference) = repo.revparse_ext(refname).expect("Object not found");
     repo.checkout_tree(&object, None)
@@ -444,6 +451,7 @@ fn build_pg_stat_statements() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
+#[cfg(not(feature = "ignore-network-related-tests"))]
 #[test]
 fn build_pg_cron_trunk_toml() -> Result<(), Box<dyn std::error::Error>> {
     // Set up a temporary directory that will be deleted when the test finishes.
@@ -536,6 +544,7 @@ fn build_pg_cron_trunk_toml() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
+#[cfg(not(feature = "ignore-network-related-tests"))]
 #[test]
 fn build_pgrx_with_trunk_toml() -> Result<(), Box<dyn std::error::Error>> {
     // Set up a temporary directory that will be deleted when the test finishes.
@@ -663,6 +672,7 @@ fn build_pgrx_with_trunk_toml_bad_version() -> Result<(), Box<dyn std::error::Er
 }
 
 // Test for extension with no control file
+#[cfg(not(feature = "ignore-network-related-tests"))]
 #[test]
 fn build_auto_explain() -> Result<(), Box<dyn std::error::Error>> {
     // Set up a temporary directory that will be deleted when the test finishes.
@@ -751,6 +761,7 @@ fn build_auto_explain() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
+#[cfg(not(feature = "ignore-network-related-tests"))]
 #[test]
 fn build_pg_unit() -> Result<(), Box<dyn std::error::Error>> {
     // Set up a temporary directory that will be deleted when the test finishes.
@@ -786,6 +797,7 @@ fn build_pg_unit() -> Result<(), Box<dyn std::error::Error>> {
 }
 
 // Build and install postgis
+#[cfg(not(feature = "ignore-network-related-tests"))]
 #[test]
 fn build_install_postgis() -> Result<(), Box<dyn std::error::Error>> {
     // Set up a temporary directory that will be deleted when the test finishes.

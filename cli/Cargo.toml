@@ -9,6 +9,9 @@ license = "Apache-2.0"
 readme = "README.md"
 repository = "https://github.com/tembo-io/trunk"
 
+[features]
+ignore-network-related-tests = []
+
 [[bin]]
 name = "trunk"
 path = "src/main.rs"
